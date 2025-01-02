@@ -1,18 +1,6 @@
-/// LIST OF Enums
-/// They cannot be created inside a class.
+/// LIST of constants used in APIs
 
-enum TextSizes { small, medium, large }
-
-enum OrderStatus { processing, shipped, delivered }
-
-enum PaymentMethods {
-  paypal,
-  googlePay,
-  applePay,
-  visa,
-  masterCard,
-  creditCard,
-  paystack,
-  razorPay,
-  paytm
+class APIConstants {
+  static const String tSecretAPIKey =
+      "cwt_live_4b8f3b1b-1b7b-4b3d-8b7d-4b3d8b7d4b3d";
 }
