@@ -1,20 +1,26 @@
+import 'package:ecommerce_using_flutter/features/authentication/controllers.onboarding/onboarding_controller.dart';
+import 'package:ecommerce_using_flutter/features/authentication/screens.onboarding/widgets/onboarding_dot_navigation.dart';
+import 'package:ecommerce_using_flutter/features/authentication/screens.onboarding/widgets/onboarding_next_button.dart';
+import 'package:ecommerce_using_flutter/features/authentication/screens.onboarding/widgets/onboarding_page.dart';
+import 'package:ecommerce_using_flutter/features/authentication/screens.onboarding/widgets/onboarding_skip.dart';
 import 'package:ecommerce_using_flutter/utils/constants/images_strings.dart';
-import 'package:ecommerce_using_flutter/utils/constants/sizes.dart';
 import 'package:ecommerce_using_flutter/utils/constants/text_strings.dart';
-import 'package:ecommerce_using_flutter/utils/device/device_utility.dart';
-import 'package:ecommerce_using_flutter/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(OnboardingController());
+
     return Scaffold(
       body: Stack(
         children: [
           /// Horizontal Scrollable Pages
           PageView(
+            controller: controller.pageController,
             children: [
               OnBoardingPage(
                   image: TImages.onBoardingImage1,
@@ -33,58 +39,12 @@ class OnboardingScreen extends StatelessWidget {
 
           /// Skip Button
           const OnBoardingSkip(),
-        ],
-      ),
-    );
-  }
-}
 
-class OnBoardingSkip extends StatelessWidget {
-  const OnBoardingSkip({
-    super.key,
-  });
+          /// Dot Navigation SmoothPageIndicator
+          const OnBoardingDotNavigation(),
 
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      top: TDeviceUtils.getAppBarHeight(),
-      right: TSizes.defaultSpace,
-      child: TextButton(
-        onPressed: () {},
-        child: const Text('Skip'),
-      ),
-    );
-  }
-}
-
-class OnBoardingPage extends StatelessWidget {
-  const OnBoardingPage({
-    super.key,
-    required this.image,
-    required this.title,
-    required this.subTitle,
-  });
-
-  final String image, title, subTitle;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
-      child: Column(
-        children: [
-          Image(
-            width: THelperFunctions.screenWidth() * 0.8,
-            height: THelperFunctions.screenHeight() * 0.6,
-            image: AssetImage(image),
-          ),
-          Text(title,
-              style: Theme.of(context).textTheme.headlineMedium,
-              textAlign: TextAlign.center),
-          SizedBox(height: TSizes.spaceBtwItems),
-          Text(subTitle,
-              style: Theme.of(context).textTheme.bodyMedium,
-              textAlign: TextAlign.center),
+          /// Circular Button
+          const OnBoardingNextButton()
         ],
       ),
     );
