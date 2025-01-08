@@ -1,6 +1,8 @@
+import 'package:ecommerce_using_flutter/features/authentication/screens/signup/signup.dart';
 import 'package:ecommerce_using_flutter/utils/constants/sizes.dart';
 import 'package:ecommerce_using_flutter/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class TLoginForm extends StatelessWidget {
@@ -33,10 +35,10 @@ class TLoginForm extends StatelessWidget {
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields / 2),
 
-            // Remember Me & Forget Password
+            /// Remember Me & Forget Password
             Row(
               children: [
-                // Remember Me
+                /// Remember Me
                 Row(
                   children: [
                     Checkbox(value: true, onChanged: (value) {}),
@@ -44,29 +46,31 @@ class TLoginForm extends StatelessWidget {
                   ],
                 ),
 
-                // Forget Password
+                /// Forget Password
                 TextButton(
                     onPressed: () {}, child: const Text(TTexts.forgetPassword)),
               ],
             ),
             const SizedBox(height: TSizes.spaceBtwSections),
 
-            // Sign In Button
+            /// Sign In Button
             SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text(TTexts.signIn),
-                )),
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: const Text(TTexts.signIn),
+              ),
+            ),
             const SizedBox(height: TSizes.spaceBtwItems),
 
-            // Create Account Button
+            /// Create Account Button
             SizedBox(
-                width: double.infinity,
-                child: OutlinedButton(
-                  onPressed: () {},
-                  child: const Text(TTexts.createAccount),
-                )),
+              width: double.infinity,
+              child: OutlinedButton(
+                onPressed: () => Get.to(() => const SignupScreen()),
+                child: const Text(TTexts.createAccount),
+              ),
+            ),
           ],
         ),
       ),
