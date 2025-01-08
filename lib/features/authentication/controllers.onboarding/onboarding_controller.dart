@@ -1,3 +1,4 @@
+import 'package:ecommerce_using_flutter/features/authentication/screens/login/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -19,12 +20,22 @@ class OnboardingController extends GetxController {
 
   /// update current index and jump to next page
   void nextPage() {
-    if (currentPageIndex.value == 2) {
-      // Get.to(LoginScreen());
+    if (currentPageIndex.value != 3) {
+      currentPageIndex.value++;
+      pageController.nextPage(
+          duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
     } else {
-      int page = currentPageIndex.value + 1;
-      pageController.jumpToPage(page);
+      Get.offAll(() => const LoginScreen());
     }
+
+    // if (currentPageIndex.value == 3) {
+    //   Get.off(() => const LoginScreen());
+    // } else {
+    //   int page = currentPageIndex.value + 1;
+    //   pageController.jumpToPage(page);
+    //
+    //   // pageController.jumpToPage(currentPageIndex.value++);
+    // }
   }
 
   /// update current index and jump to the last page
