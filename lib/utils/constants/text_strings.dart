@@ -37,6 +37,7 @@ class TTexts {
   static const String privacyPolicy = "Privacy Policy";
   static const String termsOfUse = "Terms of use";
   static const String verificationCode = "verificationCode";
+  static const String tContinue = "Continue";
   static const String resendEmail = "Resend Email";
   static const String resendEmailIn = "Resend email in";
 

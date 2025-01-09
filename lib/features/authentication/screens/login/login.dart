@@ -1,6 +1,6 @@
 import 'package:ecommerce_using_flutter/common/styles/spacing_styles.dart';
-import 'package:ecommerce_using_flutter/common/widgets/login_signup.dart';
-import 'package:ecommerce_using_flutter/common/widgets/social_buttons.dart';
+import 'package:ecommerce_using_flutter/common/widgets/login_signup/login_signup.dart';
+import 'package:ecommerce_using_flutter/common/widgets/login_signup/social_buttons.dart';
 import 'package:ecommerce_using_flutter/features/authentication/screens/login/widgets/login_form.dart';
 import 'package:ecommerce_using_flutter/features/authentication/screens/login/widgets/login_header.dart';
 import 'package:ecommerce_using_flutter/utils/constants/sizes.dart';
